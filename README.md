@@ -1,2 +1,2 @@
 # cardano-smart-contracts
-Cardano smart contracts for Abex bridge.
+Cardano smart contracts for Apex bridge.
