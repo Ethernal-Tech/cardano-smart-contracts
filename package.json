@@ -1,10 +1,10 @@
 {
-  "name": "",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "cardano-smart-contracts",
+  "version": "0.1.0",
+  "description": "Cardano smart contracts for Skyline bridge",
+  "main": "build.js",
   "type": "module",
-  "license": "AGPL-version-3.0",
+  "license": "Apache-2.0",
   "private": false,
   "engines": {
     "node": ">= 14.0.0",
@@ -13,14 +13,13 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Ethernal-Tech/cardano-smart-contracts"
   },
   "bugs": "",
   "keywords": [],
   "author": {
-    "name": "",
-    "email": "",
-    "url": ""
+    "name": "Ethernal-Tech",
+    "url": "https://ethernal.tech/"
   },
   "contributors": [],
   "scripts": {

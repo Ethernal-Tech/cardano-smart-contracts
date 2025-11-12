@@ -9,9 +9,9 @@ import {
 } from "@helios-lang/uplc";
 import { expect, test } from "vitest";
 import {
-  makeDummyTxInfo,
+  makeBasicTxInfo,
   makeMintingPurpose
-} from "./dummy-helpers.js";
+} from "./basic-helpers.js";
 import { 
   compileValidator,
   makeNftValue,
@@ -31,7 +31,7 @@ test("validator should pass", () => {
 
   // build txInfo & purpose then ScriptContext as a constructor (txInfo, purpose)
   const nftValue = makeNftValue(NFT_POLICY, NFT_NAME);
-  const txInfo = makeDummyTxInfo(nftValue);
+  const txInfo = makeBasicTxInfo(nftValue);
   const purpose = makeMintingPurpose(MINTING_POLICY);
   const scriptContextData = makeConstrData(0, [txInfo, purpose]);
   const scriptContext = makeUplcDataValue(scriptContextData);
@@ -56,7 +56,7 @@ test("validator should fail for missing NFT", () => {
 
   // build txInfo & purpose then ScriptContext as a constructor (txInfo, purpose)
   const nftValue = makeMapData([]);
-  const txInfo = makeDummyTxInfo(nftValue);
+  const txInfo = makeBasicTxInfo(nftValue);
   const purpose = makeMintingPurpose(MINTING_POLICY);
   const scriptContextData = makeConstrData(0, [txInfo, purpose]);
   const scriptContext = makeUplcDataValue(scriptContextData);
@@ -77,7 +77,7 @@ test("validator should fail for wrong NFT", () => {
   
     // build txInfo & purpose then ScriptContext as a constructor (txInfo, purpose)
     const nftValue = makeNftValue(NFT_POLICY, "WrongNFT");    
-    const txInfo = makeDummyTxInfo(nftValue);
+  const txInfo = makeBasicTxInfo(nftValue);
     const purpose = makeMintingPurpose(MINTING_POLICY);
     const scriptContextData = makeConstrData(0, [txInfo, purpose]);
     const scriptContext = makeUplcDataValue(scriptContextData);
@@ -98,7 +98,7 @@ test("validator should fail for missing NFT in input", () => {
     
     // build txInfo & purpose then ScriptContext as a constructor (txInfo, purpose)
     const nftValue = makeNftValue(NFT_POLICY, NFT_NAME);
-    const txInfo = makeDummyTxInfo(nftValue, true, false);
+  const txInfo = makeBasicTxInfo(nftValue, true, false);
     const purpose = makeMintingPurpose(MINTING_POLICY);
     const scriptContextData = makeConstrData(0, [txInfo, purpose]);
     const scriptContext = makeUplcDataValue(scriptContextData);
@@ -117,7 +117,7 @@ test("validator should fail for missing NFT in output", () => {
   
   // build txInfo & purpose then ScriptContext as a constructor (txInfo, purpose)
   const nftValue = makeNftValue(NFT_POLICY, NFT_NAME);
-  const txInfo = makeDummyTxInfo(nftValue, false);
+  const txInfo = makeBasicTxInfo(nftValue, false);
   const purpose = makeMintingPurpose(MINTING_POLICY);
   const scriptContextData = makeConstrData(0, [txInfo, purpose]);
   const scriptContext = makeUplcDataValue(scriptContextData);

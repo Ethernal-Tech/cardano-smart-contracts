@@ -1,5 +1,5 @@
 // @ts-nocheck
-// test/dummy-helpers.js - Dummy test helper functions for building ScriptContext
+// test/basic-helpers.js - Basic test helper functions for building ScriptContext
 
 import {
   makeIntData,
@@ -11,9 +11,9 @@ import {
 import { hexToBytes } from "./helpers.js";
 
 /**
- * Create a dummy TxInput with the given value
+ * Create a basic TxInput with the given value
  */
-export function makeDummyTxIn(valueData, placeNFTInInput = true) {
+export function makeBasicTxIn(valueData, placeNFTInInput = true) {
   // A TxInInfo is usually a pair (outRef, txOut)
   // We'll encode outRef as a ConstrData with (txId :: ByteArray, index :: Int)
   const outRef = makeConstrData(0, [
@@ -33,9 +33,9 @@ export function makeDummyTxIn(valueData, placeNFTInInput = true) {
 }
 
 /**
- * Create a dummy TxOutput with the given value
+ * Create a basic TxOutput with the given value
  */
-export function makeDummyTxOut(valueData, placeNFTInOutput = true) {
+export function makeBasicTxOut(valueData, placeNFTInOutput = true) {
   return makeConstrData(0, [
     makeByteArrayData(new Uint8Array([1])),
     placeNFTInOutput ? valueData : makeMapData([]), // value containing the NFT
@@ -44,12 +44,12 @@ export function makeDummyTxOut(valueData, placeNFTInOutput = true) {
 }
 
 /**
- * Create a dummy TxInfo with the given value in inputs/outputs/mint
+ * Create a basic TxInfo with the given value in inputs/outputs/mint
  */
-export function makeDummyTxInfo(valueData, placeNFTInOutput = true, placeNFTInInput = true) {
-  const inputs = makeListData([makeDummyTxIn(valueData, placeNFTInInput)]); // list of TxInInfo
+export function makeBasicTxInfo(valueData, placeNFTInOutput = true, placeNFTInInput = true) {
+  const inputs = makeListData([makeBasicTxIn(valueData, placeNFTInInput)]); // list of TxInInfo
   const referenceInputs = makeListData([]);       // none
-  const outputs = makeListData([makeDummyTxOut(valueData, placeNFTInOutput)]); // created outputs by tx
+  const outputs = makeListData([makeBasicTxOut(valueData, placeNFTInOutput)]); // created outputs by tx
   const fee = makeMapData([]); // empty = zero fee (or fill a map with currency -> amount)
   const mint = valueData; // include token data
   const dcert = makeListData([]); // none
@@ -68,8 +68,5 @@ export function makeDummyTxInfo(valueData, placeNFTInOutput = true, placeNFTInIn
     valid_range
   ]);
 }
-
-
-
 
 
