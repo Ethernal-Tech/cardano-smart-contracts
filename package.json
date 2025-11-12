@@ -1,0 +1,40 @@
+{
+  "name": "cardano-smart-contracts",
+  "version": "0.1.0",
+  "description": "Cardano smart contracts for Skyline bridge",
+  "main": "build.js",
+  "type": "module",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ethernal-Tech/cardano-smart-contracts"
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "Ethernal-Tech",
+    "url": "https://ethernal.tech/"
+  },
+  "contributors": [],
+  "scripts": {
+    "build": "node build.js --nft-policy 14b249936a64cbc96bde5a46e04174e7fb58b565103d0c3a32f8d61f --nft-name 54657374546F6B656E",
+    "dev": "",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@helios-lang/codec-utils": "^0.3.4",
+    "@helios-lang/compiler": "^0.17.31",
+    "@helios-lang/ledger": "^0.7.19",
+    "@helios-lang/uplc": "^0.7.20"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "vitest": "^2.1.1"
+  }
+}
